@@ -1,6 +1,12 @@
 " .vimrc
 " See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
 
+" Run vundle first to load vim plugins
+source ~/.vim/vundle.vim
+" Required to make vundle work
+filetype plugin indent on
+
+
 " shows status line with filename, column/row coords, dirty bit
 :set laststatus=2
 " provide two lines for status messages at the bottom of the screen
