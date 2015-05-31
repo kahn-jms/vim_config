@@ -88,7 +88,9 @@ filetype plugin indent on
 :set mouse=a
 
 " Try to use colors that look good on a dark background.
-"set background=dark
+set t_Co=256
+set background=dark
+colorscheme oxeded
 "highlight comment ctermfg=darkgreen
 
 " Prevent autoindent from messing up tabbing when pasting from clipboard
