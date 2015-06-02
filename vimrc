@@ -57,7 +57,7 @@ filetype plugin indent on
 " maximum allowable line length
 " :set textwidth=99
 " autoformats text, wraps lines, autoindents, continues comments etc.
-":set formatoptions=c,r,o,q,w,a,n ",t
+:set formatoptions=c,r,o,q,w,n,l,a ",t
 " allows backspace to work across lines and before the start of insert.
 :set backspace=indent,eol,start
 " Copy indent from current line when starting a new line
@@ -115,3 +115,9 @@ endif
 
 " Formatting for git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+
+" Use an undo file to record change history
+:set undofile
+" Tell vim where undo files are
+:set undodir=.vim/vimundo/
