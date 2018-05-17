@@ -44,9 +44,10 @@ filetype plugin indent on
 ":set listchars+=extends:@
 
 " indent on new line is equal to indent on previous line
-":set autoindent
+:set autoindent
 " tabstops set to 4 space
 :set tabstop=2
+:set softtabstop=2
 " tabstops are converted to spaces, ensuring the file always looks the same.
 :set expandtab
 " width of an indent level
@@ -57,7 +58,7 @@ filetype plugin indent on
 " maximum allowable line length
 " :set textwidth=99
 " autoformats text, wraps lines, autoindents, continues comments etc.
-:set formatoptions=c,r,o,q,w,n,l,a ",t
+:set formatoptions=r,o,q,w,n,l ",a,c,t
 " allows backspace to work across lines and before the start of insert.
 :set backspace=indent,eol,start
 " Copy indent from current line when starting a new line
@@ -116,8 +117,57 @@ endif
 " Formatting for git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" Jump to last cursor position when opening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 " Use an undo file to record change history
 :set undofile
 " Tell vim where undo files are
 :set undodir=.vim/vimundo/
+
+"""" PYTHON Configs """"
+" Number of spaces that a pre-existing tab is equal to.
+" For the amount of space used for a new tab use shiftwidth.
+au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+
+" What to use for an indent.
+" This will affect Ctrl-T and 'autoindent'.
+" Python: 4 spaces
+" C: tabs (pre-existing files) or 4 spaces (new files)
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+fu Select_c_style()
+    if search('^\t', 'n', 150)
+        set shiftwidth=2
+        set noexpandtab
+    el 
+        set shiftwidth=2
+        set expandtab
+    en
+endf
+au BufRead,BufNewFile *.c,*.h call Select_c_style()
+au BufRead,BufNewFile Makefile* set noexpandtab
+
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Turn off settings in 'formatoptions' relating to comment formatting.
+" - c : do not automatically insert the comment leader when wrapping based on
+"    'textwidth'
+" - o : do not insert the comment leader when using 'o' or 'O' from command mode
+" - r : do not insert the comment leader when hitting <Enter> in insert mode
+" Python: not needed
+" C: prevents insertion of '*' at the beginning of every line in a comment
+au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
+
+" For full syntax highlighting:
+let python_highlight_all=1
+syntax on
