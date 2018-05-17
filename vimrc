@@ -66,6 +66,9 @@ filetype indent on
 ":set autoindent
 ":set smartindent 
 
+" Allow copy to system clipboard
+set clipboard=unnamed
+
 " syntax colouration and highlighting
 :syntax on
 
@@ -92,22 +95,24 @@ filetype indent on
 
 " Try to use colors that look good on a dark background.
 set t_Co=256
+"let g:solarized_termtrans = 1
 set background=dark
-colorscheme oxeded
+"colorscheme zenburn
+colorscheme gruvbox
 "highlight comment ctermfg=darkgreen
 
 " Prevent autoindent from messing up tabbing when pasting from clipboard
 if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
+		let &t_SI .= "\e[?2004h"
+		let &t_EI .= "\e[?2004l"
+		let &pastetoggle = "\e[201~"
 
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
+		function XTermPasteBegin(ret)
+				set paste
+				return a:ret
+		endfunction
 
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+		inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
 " A nicer way to move to the middle of the current line
@@ -121,8 +126,8 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Jump to last cursor position when opening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+		au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+								\| exe "normal! g'\"" | endif
 endif
 
 " Use an undo file to record change history
@@ -131,24 +136,37 @@ endif
 :set undodir=.vim/vimundo/
 
 """" PYTHON Configs """"
+" PEP8 conforming indents
+au BufNewFile,BufRead *.py,*.pyw
+						\ set tabstop=4 |
+						\ set softtabstop=4 |
+						\ set shiftwidth=4 |
+						\ set textwidth=79 |
+						\ set expandtab |
+						\ set autoindent |
+						\ set fileformat=unix |
+						\ set encoding=utf-8
+
+
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+"au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+au BufRead,BufNewFile *.c,*.h set tabstop=4
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
 " Python: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
+"au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+"au BufRead,BufNewFile *.py,*.pyw set expandtab
 fu Select_c_style()
-    if search('^\t', 'n', 150)
-        set shiftwidth=2
-        set noexpandtab
-    el 
-        set shiftwidth=2
-        set expandtab
-    en
+		if search('^\t', 'n', 150)
+				set shiftwidth=2
+				set noexpandtab
+		el 
+				set shiftwidth=2
+				set expandtab
+		en
 endf
 au BufRead,BufNewFile *.c,*.h call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab

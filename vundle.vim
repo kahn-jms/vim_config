@@ -13,7 +13,26 @@ Plugin 'gmarik/Vundle.vim'
 " A ridiculous amount of color schemes
 Plugin 'flazz/vim-colorschemes'
 
+" And yet somehow missing solarized dark
+"Plugin 'altercation/vim-colors-solarized'
 
+" Help out with indent highlighting
+Plugin 'vim-indent-object'
+
+" Fancy python indenting
+Plugin 'indentpython.vim'
+
+" Completion engine
+Plugin 'Valloric/YouCompleteMe'
+" Plus some extra configs
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Check syntax on each save
+Plugin 'vim-syntastic/syntastic'
+
+" Also PEP8 checking?
+Plugin 'nvie/vim-flake8'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
