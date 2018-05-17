@@ -4,7 +4,8 @@
 " Run vundle first to load vim plugins
 source ~/.vim/vundle.vim
 " Required to make vundle work
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 
 " shows status line with filename, column/row coords, dirty bit
@@ -49,11 +50,11 @@ filetype plugin indent on
 :set tabstop=2
 :set softtabstop=2
 " tabstops are converted to spaces, ensuring the file always looks the same.
-:set expandtab
+":set expandtab
 " width of an indent level
-:set shiftwidth=2
+:set shiftwidth=4
 " round indents off to shiftwidth
-:set shiftround
+":set shiftround
 
 " maximum allowable line length
 " :set textwidth=99
@@ -62,8 +63,8 @@ filetype plugin indent on
 " allows backspace to work across lines and before the start of insert.
 :set backspace=indent,eol,start
 " Copy indent from current line when starting a new line
-:set autoindent      
-:set smartindent      
+":set autoindent
+":set smartindent 
 
 " syntax colouration and highlighting
 :syntax on
@@ -72,6 +73,7 @@ filetype plugin indent on
 :filetype on
 :autocmd FileType make :set noexpandtab
 :autocmd FileType c :set cindent
+":autocmd FileType python
 
 " these are abbreviations for convenience.
 :iab #i #include
