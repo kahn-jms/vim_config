@@ -191,3 +191,4 @@ au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoption
 " For full syntax highlighting:
 let python_highlight_all=1
 syntax on
+

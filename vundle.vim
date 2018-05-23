@@ -28,11 +28,29 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Check syntax on each save
-Plugin 'vim-syntastic/syntastic'
+"" Check syntax on each save
+"Plugin 'vim-syntastic/syntastic'
+" Syntastic configs
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+" Linting
+Plugin 'w0rp/ale'
+" Some extra annoyances
+" Ignore line too long warning
+let g:ale_python_flake8_options = '--ignore=E501'
 
 " Also PEP8 checking?
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
+
+" MyPy
+"Plugin 'integralist/vim-mypy'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
