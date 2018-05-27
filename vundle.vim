@@ -24,7 +24,6 @@ Plugin 'indentpython.vim'
 
 " Nerd commenting
 Plugin 'scrooloose/nerdcommenter'
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 
@@ -52,6 +51,8 @@ Plugin 'w0rp/ale'
 " Ignore line too long warning
 let g:ale_python_flake8_options = '--ignore=E501'
 "let g:ale_python_mypy_options = '--follow-imports=skip'
+nmap <silent> <C-j> :ALENext<cr>
+nmap <silent> <C-k> :ALEPrevious<cr>
 
 " Also PEP8 checking?
 "Plugin 'nvie/vim-flake8'
