@@ -60,6 +60,12 @@ nmap <silent> <C-k> :ALEPrevious<cr>
 " MyPy
 "Plugin 'integralist/vim-mypy'
 
+" Markdown viewer
+Plugin 'JamshedVesuna/vim-markdown-preview'
+" Set it to show Github style Markdown
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Chromium'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
