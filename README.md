@@ -1,9 +1,6 @@
 # .vim
 
-Clone this as your .vim dir or symlink it, e.g.:
-```
-ln -s ~/vim_config ~/.vim
-```
+Clone this as your .vim directory.
 
 Need to make a symbolic link to vimrc in .vim:
 ```
