@@ -158,6 +158,16 @@ au BufNewFile,BufRead *.sh
 						\ set fileformat=unix |
 						\ set encoding=utf-8
 
+" Shell scripting
+au BufNewFile,BufRead *.go
+						\ set tabstop=2 |
+						\ set softtabstop=2 |
+						\ set shiftwidth=2 |
+						\ set textwidth=79 |
+						\ set expandtab |
+						\ set autoindent |
+						\ set fileformat=unix |
+						\ set encoding=utf-8
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.

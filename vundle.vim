@@ -33,6 +33,9 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" Go language, until I get Go working from YCMD
+Plugin 'fatih/vim-go'
+
 "" Check syntax on each save
 "Plugin 'vim-syntastic/syntastic'
 " Syntastic configs
