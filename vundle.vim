@@ -4,6 +4,28 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+" NERTree file browser
+Plugin 'preservim/nerdtree'
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" Function definition tagging
+Plugin 'ludovicchabant/vim-gutentags'
+" Tell gutentags to generate new tags on events
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+" And generate more info for the tags
+let g:gutentags_ctags_extra_args = [
+						\ '--tag-relative=yes',
+						\ '--fields=+ailmnS',
+						\ '--python-kinds=-i',
+						\ ]
+" Define some useful commands for jumping to tags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-W><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
