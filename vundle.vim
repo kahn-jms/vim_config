@@ -7,7 +7,14 @@ call vundle#begin()
 
 " NERTree file browser
 Plugin 'preservim/nerdtree'
+" Make NERDTree always open in the focused file's directory
+" With a % is a way to make NERDTree open in the file's dir without changing
+" the directory vim thinks you're in. I find changin vim's current dir is more
+" useful for v/tabnew commands as well
+"nnoremap <leader>n :NERDTreeToggle %<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
+autocmd BufEnter * lcd %:p:h
+
 
 " Function definition tagging
 Plugin 'ludovicchabant/vim-gutentags'
