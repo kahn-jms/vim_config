@@ -98,6 +98,8 @@ set t_Co=256
 "let g:solarized_termtrans = 1
 set background=dark
 "colorscheme zenburn
+" This lets spellcheck highlighting in gruvbox work
+let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 "highlight comment ctermfg=darkgreen
 
