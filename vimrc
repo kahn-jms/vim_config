@@ -125,6 +125,8 @@ endif
 
 " Formatting for git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
+" Spell check for Markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Jump to last cursor position when opening a file
 if has("autocmd")
