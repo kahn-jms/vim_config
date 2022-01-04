@@ -98,6 +98,8 @@ set t_Co=256
 "let g:solarized_termtrans = 1
 set background=dark
 "colorscheme zenburn
+" This lets spellcheck highlighting in gruvbox work
+let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
 "highlight comment ctermfg=darkgreen
 
@@ -123,6 +125,8 @@ endif
 
 " Formatting for git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
+" Spell check for Markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Jump to last cursor position when opening a file
 if has("autocmd")
