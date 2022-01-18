@@ -13,6 +13,7 @@ Plugin 'preservim/nerdtree'
 " useful for v/tabnew commands as well
 "nnoremap <leader>n :NERDTreeToggle %<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 autocmd BufEnter * lcd %:p:h
 
 
