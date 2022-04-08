@@ -16,6 +16,22 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 autocmd BufEnter * lcd %:p:h
 
+" nerdtree-git-plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Leaving these here as a reference
+"let g:NERDTreeGitStatusIndicatorMapCustom = {
+"                \ 'Modified'  :'✹',
+"                \ 'Staged'    :'✚',
+"                \ 'Untracked' :'✭',
+"                \ 'Renamed'   :'➜',
+"                \ 'Unmerged'  :'═',
+"                \ 'Deleted'   :'✖',
+"                \ 'Dirty'     :'✗',
+"                \ 'Ignored'   :'☒',
+"                \ 'Clean'     :'✔︎',
+"                \ 'Unknown'   :'?',
+"                \ }
+
 
 " Function definition tagging
 Plugin 'ludovicchabant/vim-gutentags'
@@ -114,6 +130,13 @@ let vim_markdown_preview_browser='Chromium'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "" Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
+
+" Set up fancy icons
+" This must be loaded LAST of all plugins
+" Currently can't get this to work, requires setting the SSH terminal font 
+" family to a NERD patched one which I don't know how to do
+"Plugin 'ryanoasis/vim-devicons'
+"set encoding=UTF-8
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
