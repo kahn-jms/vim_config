@@ -135,8 +135,8 @@ let vim_markdown_preview_browser='Chromium'
 " This must be loaded LAST of all plugins
 " Currently can't get this to work, requires setting the SSH terminal font 
 " family to a NERD patched one which I don't know how to do
-"Plugin 'ryanoasis/vim-devicons'
-"set encoding=UTF-8
+Plugin 'ryanoasis/vim-devicons'
+set encoding=UTF-8
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
