@@ -115,6 +115,9 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Chromium'
 
+" Show Git diffs in the file itself
+Plugin 'airblade/vim-gitgutter'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
@@ -137,6 +140,44 @@ let vim_markdown_preview_browser='Chromium'
 " family to a NERD patched one which I don't know how to do
 Plugin 'ryanoasis/vim-devicons'
 set encoding=UTF-8
+
+" Vimtex plugin
+Plugin 'lervag/vimtex'
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+"let g:vimtex_view_method = 'zathura'
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+"let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_compiler_method = 'latexmk'
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+"let maplocalleader = ","
+
+"" The following intalls snippets which we use to insert templates
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+"let g:UltiSnipsExpandTrigger="<ret>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"" End of snippets setup
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
