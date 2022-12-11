@@ -162,8 +162,19 @@ au BufNewFile,BufRead *.sh
 						\ set fileformat=unix |
 						\ set encoding=utf-8
 
-" Shell scripting
-au BufNewFile,BufRead *.go
+" Latex scripting
+au BufNewFile,BufRead *.tex,*.bib
+						\ set tabstop=4 |
+						\ set softtabstop=4 |
+						\ set shiftwidth=4 |
+						\ set textwidth=79 |
+						\ set expandtab |
+						\ set autoindent |
+						\ set fileformat=unix |
+						\ set encoding=utf-8
+
+" Go, yaml, markdown scripting
+au BufNewFile,BufRead *.go,*.md,*.markdown,*.yaml,*.yml
 						\ set tabstop=2 |
 						\ set softtabstop=2 |
 						\ set shiftwidth=2 |
@@ -217,3 +228,17 @@ au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoption
 let python_highlight_all=1
 syntax on
 
+" Vimtex mappings
+" Actually want this to map to <m-i> but can't get it to work
+ call vimtex#imaps#add_map({
+        \ 'lhs' : '`i',
+        \ 'rhs' : '',
+        \ 'leader'  : '',
+        \ 'wrapper' : 'vimtex#imaps#wrap_environment',
+        \ 'context' : [
+        \   {'envs' : ['itemize', 'enumerate'],
+        \    'rhs' : '\item '},
+        \   {'envs' : ['description'],
+        \    'rhs' : '\item['},
+        \ ],
+        \})
