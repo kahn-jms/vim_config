@@ -95,7 +95,8 @@ Plugin 'fatih/vim-go'
 "let g:syntastic_check_on_wq = 0
 
 " Linting
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 " Some extra annoyances
 " Ignore line too long warning
 let g:ale_python_flake8_options = '--ignore=E501'
