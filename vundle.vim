@@ -65,6 +65,13 @@ Plugin 'flazz/vim-colorschemes'
 " Help out with indent highlighting
 Plugin 'vim-indent-object'
 
+" Show indent levels with nice vertical lines
+Plugin 'Yggdroot/indentLine'
+" To use the theme color (too strong for my taste)
+"let g:indentLine_setColors = 0
+" Set a different character for each indent level
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 " Fancy python indenting
 Plugin 'indentpython.vim'
 
