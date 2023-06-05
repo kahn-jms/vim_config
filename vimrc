@@ -173,8 +173,8 @@ au BufNewFile,BufRead *.tex,*.bib
 						\ set fileformat=unix |
 						\ set encoding=utf-8
 
-" Go, yaml, markdown scripting
-au BufNewFile,BufRead *.go,*.md,*.markdown,*.yaml,*.yml
+" Go, yaml, markdown, html scripting
+au BufNewFile,BufRead *.go,*.md,*.markdown,*.yaml,*.yml,*.html,*.scss
 						\ set tabstop=2 |
 						\ set softtabstop=2 |
 						\ set shiftwidth=2 |
